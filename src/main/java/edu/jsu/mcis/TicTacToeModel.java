@@ -74,9 +74,13 @@ public class TicTacToeModel {
         board = new Mark[width][width];
 
         /* Initialize board by filling every square with empty marks */
-        
-        // INSERT YOUR CODE HERE
-        
+
+        Mark mark = Mark.EMPTY;
+        for (int i = 0; i < size; i++){
+            for (int j = 0; j < size; i++){
+                System.out.println(mark);
+            }
+        }
     }
 	
     public boolean makeMark(int row, int col) {
@@ -87,7 +91,18 @@ public class TicTacToeModel {
            toggle "xTurn" from true to false (or vice-versa) to switch to the
            other player before returning TRUE.  Otherwise, return FALSE. */
         
-        // INSERT YOUR CODE HERE
+        for (int i = 0; i < row; i++){
+            for (int j = 0; j < col; j++){
+                xTurn = true;
+                if (isValidSquare() == true && isSquareMarked() == false){
+                    return true;
+                }
+                else {
+                    return false:
+                }
+            }
+        }
+        xturn = false;
         
         return false; // remove this line later!
         
@@ -97,9 +112,16 @@ public class TicTacToeModel {
         
         /* Return TRUE if the specified location is within the bounds of the board */
         
-        // INSERT YOUR CODE HERE
-
-        return false; // remove this line later!
+        for (int i = 0; i < row; i++){
+            for (int j = 0; j < col; j++){
+                if ( > width ||  < width){
+                return false;
+                }
+                else{
+                    return true;
+            }
+            }
+        }
         
     }
 	
@@ -117,9 +139,11 @@ public class TicTacToeModel {
         
         /* Return the mark from the square at the specified location */
         
-        // INSERT YOUR CODE HERE
-
-        return null; // remove this line later!
+        for (int i = 0; i  < row; i++){
+            for (int j = 0; j < col; j++){
+                return mark;
+            }
+        }
             
     }
 	
