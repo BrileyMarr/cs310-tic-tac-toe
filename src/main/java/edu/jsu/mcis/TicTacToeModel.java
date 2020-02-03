@@ -96,7 +96,7 @@ public class TicTacToeModel {
             for (col = 0; j < width; col++){
                 if (isValidSquare() == true && isSquareMarked() == false){
                     getMark();
-                    !xTurn;
+                    xTurn = false;
                     return true;
                 }
                 else {
@@ -179,35 +179,37 @@ public class TicTacToeModel {
         for (int row = 0; row < width; row++){
             for (int col = 0; col < width; col++){
 
-               if (board[row][0] == Mark.X && board[row][1] == Mark.X && board[row][2] == Mark.X){
-                   return Mark.X;
-               }
-               if (board[0][col] == Mark.X && board[1][col] == Mark.X && board[2][col] == Mark.X){
-                   return Mark.X; 
-               }
-               if (board[0][0] == Mark.X && board[1][1] == Mark.X && board[2][2] == Mark.X){
-                   return Mark.X;
-                   if (board[0][2] == Mark.X && board[1][1] == Mark.X && board[2][0] == Mark.X){
-                   return Mark.X;
-               }
-               if (board[row][0] == Mark.O && board[row][1] == Mark.O && board[row][2] == Mark.O){
-                   return Mark.O;
-               }
-               if (board[0][col] == Mark.O && board[1][col] == Mark.O && board[2][col] == Mark.O){
-                   return Mark.O;
-               }
-               if (board[0][0] == Mark.O && board[1][1] == Mark.O && board[2][2] == Mark.O){
-                   return Mark.O; 
-               }
-               if (board[0][2] == Mark.O && board[1][1] == Mark.O && board[2][0] == Mark.O){
-                   return Mark.O;
-               else{
-                   return Mark.EMPTY;
-               }
+                if (board[row][0] == Mark.X && board[row][1] == Mark.X && board[row][2] == Mark.X){
+                    return Mark.X;
+                }
+                if (board[0][col] == Mark.X && board[1][col] == Mark.X && board[2][col] == Mark.X){
+                    return Mark.X; 
+                }
+                if (board[0][0] == Mark.X && board[1][1] == Mark.X && board[2][2] == Mark.X){
+                    return Mark.X;
+                }
+                if (board[0][2] == Mark.X && board[1][1] == Mark.X && board[2][0] == Mark.X){
+                    return Mark.X;
+                }
+                if (board[row][0] == Mark.O && board[row][1] == Mark.O && board[row][2] == Mark.O){
+                    return Mark.O;
+                }
+                if (board[0][col] == Mark.O && board[1][col] == Mark.O && board[2][col] == Mark.O){
+                    return Mark.O;
+                }
+                if (board[0][0] == Mark.O && board[1][1] == Mark.O && board[2][2] == Mark.O){
+                    return Mark.O; 
+                }
+                if (board[0][2] == Mark.O && board[1][1] == Mark.O && board[2][0] == Mark.O){
+                    return Mark.O;
+                }
+                else{
+                    return Mark.EMPTY;
+                }
             }
         }
     }
-	
+
     private boolean isTie() {
         
         /* Check the squares of the board to see if the game is a tie */
