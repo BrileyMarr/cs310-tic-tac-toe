@@ -91,13 +91,12 @@ public class TicTacToeModel {
            toggle "xTurn" from true to false (or vice-versa) to switch to the
            other player before returning TRUE.  Otherwise, return FALSE. */
         
-        xTurn = true;
         for (row = 0; row < width; row++){
             for (col = 0; col < width; col++){
                 if (isValidSquare(row, col) == true && isSquareMarked(row, col) == false){
                     getMark(row, col);
-                    xTurn = false;
                     return true;
+                    xTurn = !xTurn;
                 }
                 else {
                     return false;
