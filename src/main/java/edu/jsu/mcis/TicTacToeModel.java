@@ -132,13 +132,13 @@ public class TicTacToeModel {
         
         for (row = 0; row < width; row++){
             for (col = 0; col < width; col++){
-                if (mark = Mark.X){
+                if (mark == Mark.X){
                     return true;
                 }
-                if (mark = Mark.O){
+                if (mark == Mark.O){
                     return true;
                 }
-                if (mark = Mark.EMPTY) {
+                if (mark == Mark.EMPTY) {
                     return false;
                 }
             }
@@ -148,10 +148,12 @@ public class TicTacToeModel {
     public Mark getMark(int row, int col) {
         
         /* Return the mark from the square at the specified location */
+
+        Mark mark;
         
         for (row = 0; row < width; row++){
             for (col = 0; col < width; col++){
-                return Mark.msg;
+                return mark;
             }
         }        
     }
