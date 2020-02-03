@@ -170,7 +170,7 @@ public class TicTacToeModel {
             return Result.TIE;
         }
         else {
-            Result.NONE;
+            return Result.NONE;
         }   
     }
 	
