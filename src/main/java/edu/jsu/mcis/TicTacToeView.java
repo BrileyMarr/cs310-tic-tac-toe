@@ -13,7 +13,7 @@ public class TicTacToeView {
         /* Initialize scanner (for console keyboard) */
         
         keyboard = new Scanner(System.in);
-        move = new TicTacToeMove(int row, int col);
+        move = new TicTacToeMove();
         
     }
 	
