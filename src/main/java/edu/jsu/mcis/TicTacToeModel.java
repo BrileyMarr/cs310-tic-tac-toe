@@ -127,16 +127,18 @@ public class TicTacToeModel {
     private boolean isSquareMarked(int row, int col) {
         
         /* Return TRUE if the square at specified location is marked */
+
+        Mark mark;
         
         for (row = 0; row < width; row++){
             for (col = 0; col < width; col++){
-                if (Mark mark = Mark.X){
+                if (mark = Mark.X){
                     return true;
                 }
-                if (Mark mark = Mark.O){
+                if (mark = Mark.O){
                     return true;
                 }
-                if (Mark mark = Mark.EMPTY) {
+                if (mark = Mark.EMPTY) {
                     return false;
                 }
             }
