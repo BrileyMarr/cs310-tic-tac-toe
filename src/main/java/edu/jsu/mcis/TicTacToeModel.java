@@ -130,13 +130,13 @@ public class TicTacToeModel {
         
         for (row = 0; row < width; row++){
             for (col = 0; col < width; col++){
-                if (Mark.X){
+                if (Mark = Mark.X){
                     return true;
                 }
-                if (Mark.O){
+                if (Mark = Mark.O){
                     return true;
                 }
-                if (Mark.EMPTY) {
+                if (Mark = Mark.EMPTY) {
                     return false;
                 }
             }
@@ -149,7 +149,7 @@ public class TicTacToeModel {
         
         for (row = 0; row < width; row++){
             for (col = 0; col < width; col++){
-                return Mark;
+                return Mark.message;
             }
         }        
     }
@@ -160,18 +160,18 @@ public class TicTacToeModel {
            TIE, or if the game is not over.  Return the corresponding Result
            value */
         
-        if (isMarkWin("X")){
+        if (isMarkWin(Mark.X) == true){
             return Result.X;
         }
-        if (isMarkWin("O")){
+        if (isMarkWin(Mark.O) == true){
             return Result.O;
         }
         if (isTie() == true){
             return Result.TIE;
         }
-        if (isMarkWin("-")) {
-            return Result.NONE;
-        }    
+        else {
+            Result.NONE;
+        }   
     }
 	
     private boolean isMarkWin(Mark mark) {
@@ -183,31 +183,31 @@ public class TicTacToeModel {
             for (int col = 0; col < width; col++){
 
                 if (board[row][0] == Mark.X && board[row][1] == Mark.X && board[row][2] == Mark.X){
-                    return "X";
+                    return true;
                 }
                 if (board[0][col] == Mark.X && board[1][col] == Mark.X && board[2][col] == Mark.X){
-                    return "X"; 
+                    return true; 
                 }
                 if (board[0][0] == Mark.X && board[1][1] == Mark.X && board[2][2] == Mark.X){
-                    return "X";
+                    return true;
                 }
                 if (board[0][2] == Mark.X && board[1][1] == Mark.X && board[2][0] == Mark.X){
-                    return "X";
+                    return true;
                 }
                 if (board[row][0] == Mark.O && board[row][1] == Mark.O && board[row][2] == Mark.O){
-                    return "O";
+                    return true;
                 }
                 if (board[0][col] == Mark.O && board[1][col] == Mark.O && board[2][col] == Mark.O){
-                    return "O";
+                    return true;
                 }
                 if (board[0][0] == Mark.O && board[1][1] == Mark.O && board[2][2] == Mark.O){
-                    return "O"; 
+                    return true; 
                 }
                 if (board[0][2] == Mark.O && board[1][1] == Mark.O && board[2][0] == Mark.O){
-                    return "O";
+                    return true;
                 }
                 else{
-                    return "-";
+                    return false;
                 }
             }
         }
@@ -232,7 +232,7 @@ public class TicTacToeModel {
         
         /* Return TRUE if the game is over */
 
-        if (isMarkWin("X") == true || isMarkWin("O") == true){
+        if (isMarkWin() == true){
             return true;
         }        
         if (isTie() == true){

@@ -13,7 +13,7 @@ public class TicTacToeView {
         /* Initialize scanner (for console keyboard) */
         
         keyboard = new Scanner(System.in);
-        move = new TicTacToeMove();
+        String move = new TicTacToeMove();
         
     }
 	
@@ -23,7 +23,7 @@ public class TicTacToeView {
            Return as a TicTacToeMove object. */
 
         System.out.println("Enter the row and column of your next move.");
-        String playerMove = keyboard.nextLine();
+        move = keyboard.nextLine();
 
         return move.TicTacToeMove();
         
