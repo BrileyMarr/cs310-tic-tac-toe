@@ -92,10 +92,10 @@ public class TicTacToeModel {
            other player before returning TRUE.  Otherwise, return FALSE. */
         
         xTurn = true;
-        for (row = 0; i < width; row++){
-            for (col = 0; j < width; col++){
-                if (isValidSquare() == true && isSquareMarked() == false){
-                    getMark();
+        for (row = 0; row < width; row++){
+            for (col = 0; col < width; col++){
+                if (isValidSquare(row col) == true && isSquareMarked(row, col) == false){
+                    getMark(row, col);
                     xTurn = false;
                     return true;
                 }
@@ -111,9 +111,9 @@ public class TicTacToeModel {
         
         /* Return TRUE if the specified location is within the bounds of the board */
         
-        for (row = 0; i < width; row++){
-            for (col = 0; j < width; col++){
-                if (i > width || i < 0 || j > width || j < 0){
+        for (row = 0; row < width; row++){
+            for (col = 0; col < width; col++){
+                if (row > width || row < 0 || col > width || col < 0){
                     return false;
                 }
                 else{
@@ -128,9 +128,12 @@ public class TicTacToeModel {
         
         /* Return TRUE if the square at specified location is marked */
         
-        for (row = 0; i < width; row++){
-            for (col = 0; j < width; col++){
-                if (Mark.X || Mark.O){
+        for (row = 0; row < width; row++){
+            for (col = 0; col < width; col++){
+                if (Mark.X){
+                    return true;
+                }
+                if (Mark.O){
                     return true;
                 }
                 if (Mark.EMPTY) {
@@ -144,9 +147,9 @@ public class TicTacToeModel {
         
         /* Return the mark from the square at the specified location */
         
-        for (row = 0; i  < width; row++){
-            for (col = 0; j < width; col++){
-                return mark;
+        for (row = 0; row < width; row++){
+            for (col = 0; col < width; col++){
+                return Mark;
             }
         }        
     }
@@ -157,16 +160,16 @@ public class TicTacToeModel {
            TIE, or if the game is not over.  Return the corresponding Result
            value */
         
-        if (isMarkWin(Mark.X)){
+        if (isMarkWin("X")){
             return Result.X;
         }
-        if (isMarkWin(Mark.O)){
+        if (isMarkWin("O")){
             return Result.O;
         }
-        if (isTie == true){
+        if (isTie() == true){
             return Result.TIE;
         }
-        if (isMarkWin(Mark.EMPTY)) {
+        if (isMarkWin("-")) {
             return Result.NONE;
         }    
     }
@@ -180,31 +183,31 @@ public class TicTacToeModel {
             for (int col = 0; col < width; col++){
 
                 if (board[row][0] == Mark.X && board[row][1] == Mark.X && board[row][2] == Mark.X){
-                    return Mark.X;
+                    return "X";
                 }
                 if (board[0][col] == Mark.X && board[1][col] == Mark.X && board[2][col] == Mark.X){
-                    return Mark.X; 
+                    return "X"; 
                 }
                 if (board[0][0] == Mark.X && board[1][1] == Mark.X && board[2][2] == Mark.X){
-                    return Mark.X;
+                    return "X";
                 }
                 if (board[0][2] == Mark.X && board[1][1] == Mark.X && board[2][0] == Mark.X){
-                    return Mark.X;
+                    return "X";
                 }
                 if (board[row][0] == Mark.O && board[row][1] == Mark.O && board[row][2] == Mark.O){
-                    return Mark.O;
+                    return "O";
                 }
                 if (board[0][col] == Mark.O && board[1][col] == Mark.O && board[2][col] == Mark.O){
-                    return Mark.O;
+                    return "O";
                 }
                 if (board[0][0] == Mark.O && board[1][1] == Mark.O && board[2][2] == Mark.O){
-                    return Mark.O; 
+                    return "O"; 
                 }
                 if (board[0][2] == Mark.O && board[1][1] == Mark.O && board[2][0] == Mark.O){
-                    return Mark.O;
+                    return "O";
                 }
                 else{
-                    return Mark.EMPTY;
+                    return "-";
                 }
             }
         }
@@ -215,7 +218,7 @@ public class TicTacToeModel {
         /* Check the squares of the board to see if the game is a tie */
         for (int row = 0; row < width; row++){
             for (int col = 0; col < width; col++){
-                if (board[row][col] == 'X' && board[row][col] == 'O'){
+                if (board[row][col] == Mark.X && board[row][col] == Mark.O){
                     return true;
                 }
                 else {
@@ -229,10 +232,10 @@ public class TicTacToeModel {
         
         /* Return TRUE if the game is over */
 
-        if (isMarkWin(X) == true || isMarkWin(O) == true){
+        if (isMarkWin("X") == true || isMarkWin("O") == true){
             return true;
         }        
-        if (isTie == true){
+        if (isTie() == true){
             return true;
         }
         else{
