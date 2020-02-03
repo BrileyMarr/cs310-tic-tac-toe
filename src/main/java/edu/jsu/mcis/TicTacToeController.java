@@ -29,8 +29,8 @@ public class TicTacToeController {
             view.showBoard(model.board);
             view.getNextMove(model.isXTurn);
 
-            if (model.isValidSquare(Model.int, Model.int) == true){
-                model.makeMark(Model.int, Model.int);
+            if (model.isValidSquare(Model.row, Model.col) == true){
+                model.makeMark(Model.row, Model.col);
             }
             else {
                 view.showInputError();
