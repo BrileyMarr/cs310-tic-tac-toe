@@ -30,7 +30,7 @@ public class TicTacToeController {
             view.getNextMove();
 
             if (model.isValidSquare() == true){
-                model.makeMark(width width);
+                model.makeMark(width, width);
             }
             else {
                 view.showInputError();

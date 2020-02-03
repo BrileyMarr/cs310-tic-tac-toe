@@ -94,7 +94,7 @@ public class TicTacToeModel {
         xTurn = true;
         for (row = 0; row < width; row++){
             for (col = 0; col < width; col++){
-                if (isValidSquare(row col) == true && isSquareMarked(row, col) == false){
+                if (isValidSquare(row, col) == true && isSquareMarked(row, col) == false){
                     getMark(row, col);
                     xTurn = false;
                     return true;
