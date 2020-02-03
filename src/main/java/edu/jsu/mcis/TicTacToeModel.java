@@ -130,13 +130,13 @@ public class TicTacToeModel {
         
         for (row = 0; row < width; row++){
             for (col = 0; col < width; col++){
-                if (Mark = Mark.X){
+                if (Mark mark = Mark.X){
                     return true;
                 }
-                if (Mark = Mark.O){
+                if (Mark mark = Mark.O){
                     return true;
                 }
-                if (Mark = Mark.EMPTY) {
+                if (Mark mark = Mark.EMPTY) {
                     return false;
                 }
             }
@@ -149,7 +149,7 @@ public class TicTacToeModel {
         
         for (row = 0; row < width; row++){
             for (col = 0; col < width; col++){
-                return Mark.message;
+                return Mark.msg;
             }
         }        
     }
@@ -232,9 +232,12 @@ public class TicTacToeModel {
         
         /* Return TRUE if the game is over */
 
-        if (isMarkWin() == true){
+        if (isMarkWin(Mark.X) == true){
             return true;
         }        
+        if (isMarkWin(Mark.O) == true){
+            return true;
+        }
         if (isTie() == true){
             return true;
         }

@@ -27,10 +27,10 @@ public class TicTacToeController {
 
         while (model.isGameover() != true){
             view.showBoard(null);
-            view.getNextMove(null);
+            view.getNextMove(isXTurn);
 
-            if (model.isValidSquare(null, null) == true){
-                model.makeMark(null, null);
+            if (model.isValidSquare(row, col) == true){
+                model.makeMark(row, col);
             }
             else {
                 view.showInputError();
