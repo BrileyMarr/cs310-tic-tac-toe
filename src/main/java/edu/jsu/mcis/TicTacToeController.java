@@ -1,6 +1,10 @@
 package edu.jsu.mcis;
 
-public class TicTacToeController {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
+public class TicTacToeController implements ActionListener {
 
     private final TicTacToeModel model;
     private final TicTacToeView view;
@@ -12,39 +16,52 @@ public class TicTacToeController {
         /* Initialize model, view, and width */
 
         model = new TicTacToeModel(width);
-        view = new TicTacToeView();
+        view = new TicTacToeView(this, width);
         
     }
 
-    public void start() {
-    
-        /* MAIN LOOP (repeats until game is over) */
+        public String getMarkAsString(int row, int col) {       
+            return (model.getMark(row, col).toString());
+        }
+        
+        public TicTacToeView getView() {       
+           return view;       
+        }
 
-        /* Display the board using the View's "showBoard()", then use
-           "getNextMove()" to get the next move from the player.  Enter
-           the move (using the Model's "makeMark()", or display an error
-           using the View's "showInputError()" if the move is invalid. */
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            
+            String name = ((JButton) event.getSource()).getName();
 
-        while (model.isGameover() != true){
-            view.showBoard(null);
-            view.getNextMove(model.isXTurn());
+            for (int row = 0; row < model.getWidth() ; row++) {
+            
+                for (int col = 0; col < model.getWidth() ; col++) {
 
-            if (model.isValidSquare(int, int) == true){
-                model.makeMark(int, int);
+                    JButton buttonClick = (JButton)event.getSource();
+
+                    if (model.isXTurn() == true){
+                        System.out.println(model.makeMark(row, col));
+                    }
+                    else if (model.isXTurn() == false){
+                        System.out.println(model.makeMark(row, col));
+                    }
+                }
+            }
+
+            view.updateSquares();
+
+            TicTacToeModel.Result result = new model.getResult();
+
+            if (result != TicTacToeModel.Result.NONE) {
+
+                view.disableSquares();
+                view.showResult(result.toString());
+            
             }
             else {
-                view.showInputError();
+                view.clearResult();
             }
 
         }
-        
-        
-        /* After the game is over, show the final board and the winner */
-
-        view.showBoard(model.toString());
-
-        view.showResult(model.getResult().toString());
-        
-    }
 
 }

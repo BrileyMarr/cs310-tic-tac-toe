@@ -46,7 +46,16 @@ public class TicTacToeView extends JPanel {
 
         /* Refresh the GUI with updated data from the Model (via the Controller) */
 
-        // INSERT YOUR CODE HERE
+        for (int row = 0; row < board.length; row++) {
+            
+            for (int col = 0; col < board[row].length; col++) {
+                
+                board[row][col].setEnabled(true);
+                board[row][col].setText(controller.getMarkAsString(row, col));
+                
+            }
+            
+        }
 
     }
     
@@ -54,7 +63,15 @@ public class TicTacToeView extends JPanel {
 
         /* Disable buttons (to disallow input after game is over) */
     
-        // INSERT YOUR CODE HERE
+        for (int row = 0; row < board.length; row++) {
+            
+            for (int col = 0; col < board[row].length; col++) {
+                
+                board[row][col].setEnabled(false);
+                
+            }
+            
+        }
             
     }
         
