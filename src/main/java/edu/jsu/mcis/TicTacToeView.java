@@ -23,7 +23,7 @@ public class TicTacToeView {
            Return as a TicTacToeMove object. */
 
         System.out.println("Enter the row and column of your next move:");
-        move = keyboard.nextLine();
+        move = keyboard.nextInt();
 
         return move;
         
