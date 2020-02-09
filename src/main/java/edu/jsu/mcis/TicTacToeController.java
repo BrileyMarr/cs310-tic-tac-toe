@@ -30,14 +30,12 @@ public class TicTacToeController implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-            
+
             String name = ((JButton) event.getSource()).getName();
 
-            for (int row = 0; row < model.getWidth() ; row++) {
+            for (int row = 0; row < name; row++) {
             
-                for (int col = 0; col < model.getWidth() ; col++) {
-
-                    JButton buttonClick = (JButton)event.getSource();
+                for (int col = 0; col < name; col++) {
 
                     if (model.isXTurn() == true){
                         System.out.println(model.makeMark(row, col));
@@ -50,7 +48,7 @@ public class TicTacToeController implements ActionListener {
 
             view.updateSquares();
 
-            TicTacToeModel.Result result = new model.getResult();
+            TicTacToeModel.Result result = model.getResult();
 
             if (result != TicTacToeModel.Result.NONE) {
 
