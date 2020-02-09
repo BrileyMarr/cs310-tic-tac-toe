@@ -134,10 +134,10 @@ public class TicTacToeModel {
                 if (mark == Mark.X){
                     return true;
                 }
-                if (mark == Mark.O){
+                else if (mark == Mark.O){
                     return true;
                 }
-                if (mark == Mark.EMPTY) {
+                else if (mark == Mark.EMPTY) {
                     return false;
                 }
             }
@@ -166,10 +166,10 @@ public class TicTacToeModel {
         if (isMarkWin(Mark.X) == true){
             return Result.X;
         }
-        if (isMarkWin(Mark.O) == true){
+        else if (isMarkWin(Mark.O) == true){
             return Result.O;
         }
-        if (isTie() == true){
+        else if (isTie() == true){
             return Result.TIE;
         }
         else {
@@ -238,10 +238,10 @@ public class TicTacToeModel {
         if (isMarkWin(Mark.X) == true){
             return true;
         }        
-        if (isMarkWin(Mark.O) == true){
+        else if (isMarkWin(Mark.O) == true){
             return true;
         }
-        if (isTie() == true){
+        else if (isTie() == true){
             return true;
         }
         else{
